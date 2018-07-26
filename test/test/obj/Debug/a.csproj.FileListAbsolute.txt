@@ -1,0 +1,14 @@
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\test.dll
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\test.pdb
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\User\source\repos\csharp_training\test\test\obj\Debug\a.csprojResolveAssemblyReference.cache
+C:\Users\User\source\repos\csharp_training\test\test\obj\Debug\a.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\csharp_training\test\test\obj\Debug\a.csproj.CopyComplete
+C:\Users\User\source\repos\csharp_training\test\test\obj\Debug\test.dll
+C:\Users\User\source\repos\csharp_training\test\test\obj\Debug\test.pdb
