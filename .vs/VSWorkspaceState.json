@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\test",
+    "\\test\\packages\\MSTest.TestAdapter.1.2.0",
+    "\\test\\packages\\MSTest.TestFramework.1.2.0",
+    "\\test\\test"
   ],
+  "SelectedNode": "\\test\\test\\UnitTest1.cs",
   "PreviewInSolutionExplorer": false
 }
