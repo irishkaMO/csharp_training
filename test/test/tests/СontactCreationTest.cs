@@ -9,16 +9,15 @@ namespace WebAddressbookTests
     [TestFixture]
     public class KontactCreationTest:BaseTest
     {
- 
         [Test]
         public void ContactCreationTest()
         {
-            GoToHomePage();
-            Login(new AccountData("admin","secret"));
-            GoToAddNewContacPage();
-            СontactForm (new Contact ("Irina",  "sys", "Korteleva"));
-            CreateContact();
-            Logout();
+            app.Navigator.GoToHomePage();
+            app.Auth.Login(new AccountData("admin","secret"));
+            app.Contact.GoToAddNewContacPage();
+            app.Contact.СontactForm (new Contact ("Irina",  "sys", "Korteleva"));
+            app.Contact.CreateContact();
+            app.Auth.Logout();
         }
     }
 }
