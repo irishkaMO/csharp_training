@@ -49,11 +49,7 @@ namespace WebAddressbookTests
             OpenHomePage();
             Login(new AccountData("admin","secret"));
             GoToAddNewContacPage();
-            NameСontactForm (new NameContact ("Irina",  "sys", "Korteleva"));
-            NiсkСontact();
-            AddressContact();
-            PhoneContact();
-            DateOfBirthday();
+            СontactForm (new Contact ("Irina",  "sys", "Korteleva"));
             CreateContact();
             Logout();
         }
@@ -71,37 +67,7 @@ namespace WebAddressbookTests
             driver.FindElement(By.LinkText("Logout")).Click();
         }
 
-        private void DateOfBirthday()
-        {
-          
-            new SelectElement(driver.FindElement(By.Name("bday"))).SelectByText("8");
-            new SelectElement(driver.FindElement(By.Name("bmonth"))).SelectByText("November");
-            driver.FindElement(By.Name("byear")).Clear();
-            driver.FindElement(By.Name("byear")).SendKeys("1983");
-        }
-
-        private void PhoneContact()
-        {
-           
-            driver.FindElement(By.Name("home")).Clear();
-            driver.FindElement(By.Name("home")).SendKeys("7777777777");
-        }
-
-        private void AddressContact()
-        {
-            
-            driver.FindElement(By.Name("address")).Clear();
-            driver.FindElement(By.Name("address")).SendKeys("grodno");
-        }
-
-        private void NiсkСontact()
-        {
-            
-            driver.FindElement(By.Name("nickname")).Clear();
-            driver.FindElement(By.Name("nickname")).SendKeys("kotik");
-        }
-
-        private void NameСontactForm(NameContact FIO)
+        private void СontactForm(Contact FIO)
         {
             
             driver.FindElement(By.Name("firstname")).Clear();
@@ -110,6 +76,20 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("middlename")).SendKeys(FIO.Middlename);
             driver.FindElement(By.Name("lastname")).Clear();
             driver.FindElement(By.Name("lastname")).SendKeys(FIO.Lastname);
+
+            driver.FindElement(By.Name("nickname")).Clear();
+            driver.FindElement(By.Name("nickname")).SendKeys(FIO.Nickname);
+
+            driver.FindElement(By.Name("address")).Clear();
+            driver.FindElement(By.Name("address")).SendKeys(FIO.Address);
+
+            new SelectElement(driver.FindElement(By.Name("bday"))).SelectByText(FIO.BirthdayDay);
+            new SelectElement(driver.FindElement(By.Name("bmonth"))).SelectByText(FIO.BirthdayMonth);
+            driver.FindElement(By.Name("byear")).Clear();
+            driver.FindElement(By.Name("byear")).SendKeys(FIO.BirthdayYear);
+
+            driver.FindElement(By.Name("home")).Clear();
+            driver.FindElement(By.Name("home")).SendKeys(FIO.Home);
         }
 
         private void GoToAddNewContacPage()
