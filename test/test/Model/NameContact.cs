@@ -18,7 +18,11 @@ namespace WebAddressbookTests
         private string birthdayYear = "1983";
         private string birthdayDay = "8";
         private string birthdayMonth = "November";
-        
+
+        public Contact(string firstname)
+        {
+            this.firstname = firstname;
+        }
 
         public Contact(string firstname, string middlename, string lastname)
         {
@@ -26,6 +30,7 @@ namespace WebAddressbookTests
             this.lastname = lastname;
             this.middlename = middlename;
         }
+
         public string Firstname
         {
             get

@@ -12,13 +12,20 @@ namespace WebAddressbookTests
         [Test]
         public void CroupCreationTest()
         {
-            app.Navigator.GoToHomePage();
-            app.Auth.Login(new AccountData ("admin","secret"));
-            app.Navigator.GoToGroupPage();
-            app.Group.InitGroupCreation();
-            app.Group.FillGroupForm(new GroupData ("irina","test","test"));
-            app.Group.SubmitGroupCreation();
-            app.Group.ReturnToGroupPage();
+            GroupData group = new GroupData("group2");
+            group.Header = "test";
+            group.Footer = "testing";
+            app.Group.Create(group);
+
+        }
+        [Test]
+        public void EmptyCroupCreationTest()
+        {
+            GroupData group = new GroupData("");
+            group.Header = "";
+            group.Footer = "";
+            app.Group.Create(group);
+              
         }
     }
 }
