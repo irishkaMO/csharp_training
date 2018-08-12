@@ -23,33 +23,47 @@ namespace WebAddressbookTests
             return this;
         }
 
-       public ContactHelper ModifyCont(string id, Contact newFIO)
+       public ContactHelper ModifyCont(Contact newFIO)
         {
-            manager.Navigator.GoToEditContactPage(id);
+            manager.Navigator.GoToEditContactPage();
             manager.Contact.СontactForm(newFIO);
-            manager.Contact.ModifyContact();
+            manager.Contact.ModifyContactButton();
             manager.Auth.Logout();
 
             return this;
         }
 
-        public ContactHelper DeleteCont(string id)
+        public ContactHelper DeleteContOnEdit()
         {
-            manager.Navigator.GoToEditContactPage(id);
-            manager.Contact.DeleteContact();
+            manager.Navigator.GoToEditContactPage();
+            manager.Contact.DeleteContactButton();
             manager.Auth.Logout();
 
             return this;
         }
 
-        public ContactHelper ModifyContact()
+        public ContactHelper DeleteContOnHome()
+        {
+            manager.Navigator.GoToHomePage();
+
+            //driver.FindElement(By.Id("16")).Click();
+            driver.FindElement(By.CssSelector("input[name=\"selected[]\"]")).Click();
+            driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
+            driver.SwitchTo().Alert().Accept();
+
+            manager.Auth.Logout();
+
+            return this;
+        }
+
+        public ContactHelper ModifyContactButton()
         {
             driver.FindElement(By.XPath("//*[@id=\"content\"]/form[1]/input[22]")).Click();
             
             return this;
         }
 
-        public ContactHelper DeleteContact()
+        public ContactHelper DeleteContactButton()
         {
             driver.FindElement(By.XPath("//*[@id=\"content\"]/form[2]/input[2]")).Click();
 

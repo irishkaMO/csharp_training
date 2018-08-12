@@ -20,7 +20,6 @@ namespace WebAddressbookTests
         }
         public void GoToHomePage()
         {
-
             driver.Navigate().GoToUrl(baseURL + "/addressbook/");
         }
 
@@ -29,9 +28,10 @@ namespace WebAddressbookTests
             driver.FindElement(By.LinkText("groups")).Click();
         }
 
-        public void GoToEditContactPage(string id)
+        public void GoToEditContactPage()
         {
-            driver.Navigate().GoToUrl(baseURL + "/addressbook/edit.php?id=" + id);
+            this.GoToHomePage();
+            driver.FindElement(By.CssSelector("img[alt=\"Edit\"]")).Click();
         }
     }
 }
