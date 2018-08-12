@@ -72,29 +72,19 @@ namespace WebAddressbookTests
 
         public ContactHelper СontactForm(Contact FIO)
         {
-            driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(FIO.Firstname);
-            driver.FindElement(By.Name("middlename")).Clear();
-            driver.FindElement(By.Name("middlename")).SendKeys(FIO.Middlename);
-            driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys(FIO.Lastname);
-
-            driver.FindElement(By.Name("nickname")).Clear();
-            driver.FindElement(By.Name("nickname")).SendKeys(FIO.Nickname);
-
-            driver.FindElement(By.Name("address")).Clear();
-            driver.FindElement(By.Name("address")).SendKeys(FIO.Address);
-
+            Type(By.Name("firstname"),FIO.Firstname);
+            Type(By.Name("middlename"),FIO.Middlename);
+            Type(By.Name("lastname"), FIO.Lastname);
+            Type(By.Name("nickname"),FIO.Nickname);
+            Type(By.Name("address"),FIO.Address);
+           
             new SelectElement(driver.FindElement(By.Name("bday"))).SelectByText(FIO.BirthdayDay);
             new SelectElement(driver.FindElement(By.Name("bmonth"))).SelectByText(FIO.BirthdayMonth);
-            driver.FindElement(By.Name("byear")).Clear();
-            driver.FindElement(By.Name("byear")).SendKeys(FIO.BirthdayYear);
-
-            driver.FindElement(By.Name("home")).Clear();
-            driver.FindElement(By.Name("home")).SendKeys(FIO.Home);
+            Type(By.Name("byear"),FIO.BirthdayYear);
+            Type(By.Name("home"),FIO.Home);
             return this;
         }
-
+        
         public ContactHelper GoToAddNewContacPage()
         {
 

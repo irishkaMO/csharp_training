@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class GroupCreationTests:BaseTest
+    public class GroupCreationTests:AuthTestBase
     {
         [Test]
         public void CroupCreationTest()

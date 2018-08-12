@@ -11,7 +11,7 @@ using OpenQA.Selenium.Support.UI;
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class GroupRemovalTests:BaseTest
+    public class GroupRemovalTests:AuthTestBase
     {
         [Test]
         public void GroupRemovalTest()

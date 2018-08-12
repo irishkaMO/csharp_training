@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Model\AccountData.cs" />
     <Compile Include="appmanager\ApplicationManager.cs" />
+    <Compile Include="tests\AuthTestBase.cs" />
     <Compile Include="tests\BaseTest.cs" />
     <Compile Include="appmanager\ContactHelper.cs" />
     <Compile Include="Model\GroupData.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="tests\GroupModificationTests.cs" />
     <Compile Include="tests\GroupRemovalTests.cs" />
     <Compile Include="tests\DeleteContact.cs" />
+    <Compile Include="tests\LoginTest.cs" />
     <Compile Include="tests\ModifyContact.cs" />
     <Compile Include="tests\СontactCreationTest.cs" />
   </ItemGroup>

@@ -15,7 +15,7 @@ namespace WebAddressbookTests
         private string nickname = "tets_nickname";
         private string address = "Grodno";
         private string home = "12345678";
-        private string birthdayYear = "1983";
+        private string birthdayYear = "1982";
         private string birthdayDay = "8";
         private string birthdayMonth = "November";
 

@@ -9,12 +9,12 @@ using NUnit.Framework;
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class ModifyContacts : BaseTest
-
+    public class ModifyContacts : AuthTestBase
     {
         [Test]
         public void ModifyContact()
-        {
+        {   
+           
             Contact newFIO = new Contact("smena");
             newFIO.Middlename = "grupy";
             newFIO.Lastname = "modif";
