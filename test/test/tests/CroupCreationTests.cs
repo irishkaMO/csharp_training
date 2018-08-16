@@ -10,12 +10,9 @@ namespace WebAddressbookTests
     public class GroupCreationTests:AuthTestBase
     {
         [Test]
-        public void CroupCreationTest()
+        public void GroupCreationTest()
         {
-            GroupData group = new GroupData("group2");
-            group.Header = "test";
-            group.Footer = "testing";
-            app.Group.Create(group);
+            app.Group.CreateGroup();
 
         }
         [Test]

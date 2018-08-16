@@ -14,8 +14,7 @@ namespace WebAddressbookTests
         [Test]
         public void ModifyContact()
         {   
-           
-            Contact newFIO = new Contact("smena");
+            Contact newFIO = new Contact("smenatest222");
             newFIO.Middlename = "grupy";
             newFIO.Lastname = "modif";
             app.Contact.ModifyCont(newFIO);

@@ -135,10 +135,5 @@ namespace WebAddressbookTests
                 home = value;
             }
         }
-
-
-
-
-
     }
 }

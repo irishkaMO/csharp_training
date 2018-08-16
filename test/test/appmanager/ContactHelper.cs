@@ -14,46 +14,53 @@ namespace WebAddressbookTests
     {
         public ContactHelper(ApplicationManager manager) : base(manager)
         {
+
         }
 
         public ContactHelper CreateContact()
         {
-
+            manager.Contact.GoToAddNewContacPage();
+            manager.Contact.СontactForm(new Contact("Irina", "sys", "Korteleva"));
             driver.FindElement(By.Name("submit")).Click();
             return this;
         }
 
        public ContactHelper ModifyCont(Contact newFIO)
         {
-            manager.Navigator.GoToEditContactPage();
+           
+            manager.Contact.CheckForAvailabilityСontact();
+            driver.FindElement(By.CssSelector("img[alt=\"Edit\"]")).Click();
             manager.Contact.СontactForm(newFIO);
             manager.Contact.ModifyContactButton();
-            manager.Auth.Logout();
-
             return this;
         }
 
         public ContactHelper DeleteContOnEdit()
         {
-            manager.Navigator.GoToEditContactPage();
+            manager.Contact.CheckForAvailabilityСontact();
+            driver.FindElement(By.CssSelector("img[alt=\"Edit\"]")).Click();
             manager.Contact.DeleteContactButton();
-            manager.Auth.Logout();
-
             return this;
         }
 
         public ContactHelper DeleteContOnHome()
         {
-            manager.Navigator.GoToHomePage();
-
-            //driver.FindElement(By.Id("16")).Click();
+            manager.Contact.CheckForAvailabilityСontact();
             driver.FindElement(By.CssSelector("input[name=\"selected[]\"]")).Click();
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             driver.SwitchTo().Alert().Accept();
-
             manager.Auth.Logout();
-
             return this;
+        }
+        public void CheckForAvailabilityСontact()
+        {
+            manager.Navigator.GoToHomePage();
+            if (IsElementPresent(By.CssSelector("img[alt=\"Edit\"]")))
+            {
+                return;
+            }
+            manager.Contact.CreateContact();
+            manager.Navigator.GoToHomePage();
         }
 
         public ContactHelper ModifyContactButton()
@@ -87,10 +94,8 @@ namespace WebAddressbookTests
         
         public ContactHelper GoToAddNewContacPage()
         {
-
             driver.FindElement(By.LinkText("add new")).Click();
             return this;
         }
-       
     }
 }

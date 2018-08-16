@@ -24,7 +24,7 @@ namespace WebAddressbookTests
         protected ContactHelper contactHelper;
         private static ThreadLocal<ApplicationManager> app= new ThreadLocal<ApplicationManager>();
 
-        protected ApplicationManager()
+        public ApplicationManager()
         {
             FirefoxOptions options = new FirefoxOptions();
             options.BrowserExecutableLocation = @"C:\Users\User\Documents\firefox-45.7.0esr.win64.sdk\firefox-sdk\bin\firefox.exe";

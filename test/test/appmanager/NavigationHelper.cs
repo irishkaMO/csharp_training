@@ -34,11 +34,5 @@ namespace WebAddressbookTests
             }
             driver.FindElement(By.LinkText("groups")).Click();
         }
-
-        public void GoToEditContactPage()
-        {
-            this.GoToHomePage();
-            driver.FindElement(By.CssSelector("img[alt=\"Edit\"]")).Click();
-        }
     }
 }

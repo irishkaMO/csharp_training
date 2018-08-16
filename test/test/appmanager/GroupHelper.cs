@@ -15,7 +15,24 @@ namespace WebAddressbookTests
         public GroupHelper(ApplicationManager manager):base(manager)
         {
         }
-        
+
+        public void CreateGroup()
+        {
+            GroupData group = new GroupData("group2");
+            group.Header = "test";
+            group.Footer = "testing";
+            manager.Group.Create(group);
+        }
+        public GroupHelper Create(GroupData group)
+        {
+            manager.Navigator.GoToGroupPage();
+            InitGroupCreation();
+            FillGroupForm(group);
+            SubmitGroupCreation();
+            ReturnToGroupPage();
+            return this;
+        }
+
         public GroupHelper ReturnToGroupPage()
         {
             driver.FindElement(By.LinkText("group page")).Click();
@@ -24,6 +41,7 @@ namespace WebAddressbookTests
 
         public GroupHelper Modify(int v, GroupData newData)
         {
+            manager.Group.CheckForAvailabilityGroup();
             manager.Navigator.GoToGroupPage();
             Select(v);
             InitGroupModification();
@@ -33,29 +51,37 @@ namespace WebAddressbookTests
             return this;
         }
 
-        public GroupHelper RemovalGroup()
-        {
-            driver.FindElement(By.Name("delete")).Click();
-            return this;
-
-        }
-
         public GroupHelper Remove(int p)
         {
+            manager.Group.CheckForAvailabilityGroup();
             manager.Navigator.GoToGroupPage();
-
             Select(p);
             RemovalGroup();
             ReturnToGroupPage();
             return this;
         }
-
         public GroupHelper Select(int index)
         {
             driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
             return this;
         }
+        public GroupHelper RemovalGroup()
+        {
+            driver.FindElement(By.Name("delete")).Click();
+            return this;
+        }
 
+        public void CheckForAvailabilityGroup()
+        {
+            manager.Navigator.GoToGroupPage();
+            if (IsElementPresent(By.Name("selected[]")))
+            {
+                return;
+            }
+            manager.Group.CreateGroup();
+            
+        }
+       
         public GroupHelper SubmitGroupCreation()
             {
 
@@ -78,14 +104,7 @@ namespace WebAddressbookTests
             return this;
             }
 
-        public GroupHelper Create(GroupData group)
-        {  manager.Navigator.GoToGroupPage();
-            InitGroupCreation();
-            FillGroupForm(group);
-            SubmitGroupCreation();
-               ReturnToGroupPage();
-            return this;
-        }
+      
 
         public GroupHelper SubmitGroupModification()
         {
