@@ -15,12 +15,14 @@ namespace WebAddressbookTests
         [Test]
         public void DeleteContactByEditForm()
         {
+            app.Contact.CheckForAvailabilityСontact();
             app.Contact.DeleteContOnEdit();
         }
 
         [Test]
         public void DeleteContactByHomePage()
         {
+            app.Contact.CheckForAvailabilityСontact();
             app.Contact.DeleteContOnHome();
         }
     }

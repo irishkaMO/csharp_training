@@ -41,7 +41,6 @@ namespace WebAddressbookTests
 
         public GroupHelper Modify(int v, GroupData newData)
         {
-            manager.Group.CheckForAvailabilityGroup();
             manager.Navigator.GoToGroupPage();
             Select(v);
             InitGroupModification();
@@ -53,7 +52,6 @@ namespace WebAddressbookTests
 
         public GroupHelper Remove(int p)
         {
-            manager.Group.CheckForAvailabilityGroup();
             manager.Navigator.GoToGroupPage();
             Select(p);
             RemovalGroup();

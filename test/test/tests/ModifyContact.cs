@@ -17,6 +17,7 @@ namespace WebAddressbookTests
             Contact newFIO = new Contact("smenatest222");
             newFIO.Middlename = "grupy";
             newFIO.Lastname = "modif";
+            app.Contact.CheckForAvailabilityСontact();
             app.Contact.ModifyCont(newFIO);
         }
     }

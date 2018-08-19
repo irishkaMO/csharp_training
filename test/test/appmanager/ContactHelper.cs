@@ -37,7 +37,6 @@ namespace WebAddressbookTests
 
         public ContactHelper DeleteContOnEdit()
         {
-            manager.Contact.CheckForAvailabilityСontact();
             driver.FindElement(By.CssSelector("img[alt=\"Edit\"]")).Click();
             manager.Contact.DeleteContactButton();
             return this;
@@ -45,7 +44,7 @@ namespace WebAddressbookTests
 
         public ContactHelper DeleteContOnHome()
         {
-            manager.Contact.CheckForAvailabilityСontact();
+            
             driver.FindElement(By.CssSelector("input[name=\"selected[]\"]")).Click();
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             driver.SwitchTo().Alert().Accept();
