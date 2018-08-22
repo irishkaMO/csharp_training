@@ -6,6 +6,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
+using System.Collections.Generic;
 
 
 namespace WebAddressbookTests
@@ -17,8 +18,12 @@ namespace WebAddressbookTests
         public void GroupRemovalTest()
         {
             app.Group.CheckForAvailabilityGroup();
-            app.Group.Remove(1);
-            
+            List<GroupData> oldGroups = app.Group.GetGroupList();
+            app.Group.Remove(0);
+            List<GroupData> newGroups = app.Group.GetGroupList();
+            oldGroups.RemoveAt(0);
+            Assert.AreEqual(oldGroups, newGroups);
+
         }
     }
 }

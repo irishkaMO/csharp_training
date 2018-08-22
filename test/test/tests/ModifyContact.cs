@@ -14,11 +14,16 @@ namespace WebAddressbookTests
         [Test]
         public void ModifyContact()
         {   
-            Contact newFIO = new Contact("smenatest222");
-            newFIO.Middlename = "grupy";
-            newFIO.Lastname = "modif";
+            Contact newFIO = new Contact("smena");
+            newFIO.Middlename = "contact";
+            newFIO.Lastname = "Modification";
             app.Contact.CheckForAvailabilityСontact();
+            List<Contact> oldContacts = app.Contact.GetContactList();
             app.Contact.ModifyCont(newFIO);
+            List<Contact> newContacts = app.Contact.GetContactList();
+            //Assert.False(oldContacts[0].Equals(newContacts[0]));
+            Assert.True(newContacts[0].Equals(newFIO));
+            //app.Contact.DeleteContOnHome();
         }
     }
 }

@@ -27,7 +27,6 @@ namespace WebAddressbookTests
 
        public ContactHelper ModifyCont(Contact newFIO)
         {
-           
             manager.Contact.CheckForAvailabilityСontact();
             driver.FindElement(By.CssSelector("img[alt=\"Edit\"]")).Click();
             manager.Contact.СontactForm(newFIO);
@@ -48,7 +47,6 @@ namespace WebAddressbookTests
             driver.FindElement(By.CssSelector("input[name=\"selected[]\"]")).Click();
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             driver.SwitchTo().Alert().Accept();
-            manager.Auth.Logout();
             return this;
         }
         public void CheckForAvailabilityСontact()
@@ -61,6 +59,19 @@ namespace WebAddressbookTests
             manager.Contact.CreateContact();
             manager.Navigator.GoToHomePage();
         }
+        public List<Contact> GetContactList()
+        { 
+            List<Contact> contacts = new List<Contact>();
+            manager.Navigator.GoToHomePage();
+            ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("tr[name =\'entry\']"));
+            foreach (IWebElement element in elements)
+            {
+                IList<IWebElement> tds = element.FindElements(By.CssSelector("td"));
+                contacts.Add(new Contact(tds[2].Text,tds[1].Text));
+            }
+            return contacts;
+        }
+
 
         public ContactHelper ModifyContactButton()
         {
