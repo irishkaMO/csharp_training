@@ -17,11 +17,17 @@ namespace WebAddressbookTests
 
         }
 
-        public ContactHelper CreateContact()
+        public ContactHelper CreateContact(Contact myContact = null)
         {
+            if (myContact == null)
+            {
+                myContact = new Contact("Irina", "sys", "Korteleva");
+            }
+
             manager.Contact.GoToAddNewContacPage();
-            manager.Contact.СontactForm(new Contact("Irina", "sys", "Korteleva"));
+            manager.Contact.СontactForm(myContact);
             driver.FindElement(By.Name("submit")).Click();
+
             return this;
         }
 
@@ -67,7 +73,7 @@ namespace WebAddressbookTests
             foreach (IWebElement element in elements)
             {
                 IList<IWebElement> tds = element.FindElements(By.CssSelector("td"));
-                contacts.Add(new Contact(tds[2].Text,tds[1].Text));
+                contacts.Add(new Contact(tds[2].Text, tds[1].Text));
             }
             return contacts;
         }

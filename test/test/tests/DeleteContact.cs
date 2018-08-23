@@ -20,7 +20,10 @@ namespace WebAddressbookTests
             app.Contact.DeleteContOnEdit();
             app.Navigator.GoToHomePage();
             List<Contact> newContact = app.Contact.GetContactList();
-            Assert.AreEqual(oldContact.Count - 1, newContact.Count);
+            oldContact.RemoveAt(0);
+            oldContact.Sort();
+            newContact.Sort();
+            Assert.AreEqual(oldContact, newContact);
         }
 
         [Test]
@@ -31,7 +34,10 @@ namespace WebAddressbookTests
             app.Contact.DeleteContOnHome();
             app.Navigator.GoToHomePage();
             List<Contact> newContact = app.Contact.GetContactList();
-            Assert.AreEqual(oldContact.Count - 1, newContact.Count);
+            oldContact.RemoveAt(0);
+            oldContact.Sort();
+            newContact.Sort();
+            Assert.AreEqual(oldContact, newContact);
         }
     }
 }

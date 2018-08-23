@@ -15,10 +15,14 @@ namespace WebAddressbookTests
         [Test]
         public void ContactCreationTest()
         {
+            Contact newFIO = new Contact("NewLastName", "NewFirstName");
             List<Contact> oldContact = app.Contact.GetContactList();
-            app.Contact.CreateContact();
+            app.Contact.CreateContact(newFIO);
             List<Contact> newContact = app.Contact.GetContactList();
-            Assert.AreEqual(oldContact.Count + 1, newContact.Count);
+            oldContact.Add(newFIO);
+            oldContact.Sort();
+            newContact.Sort();
+            Assert.AreEqual(oldContact, newContact);
         }
     }
 }
