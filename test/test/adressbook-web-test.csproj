@@ -73,9 +73,9 @@
     <Compile Include="tests\CroupCreationTests.cs" />
     <Compile Include="tests\GroupModificationTests.cs" />
     <Compile Include="tests\GroupRemovalTests.cs" />
-    <Compile Include="tests\DeleteContact.cs" />
+    <Compile Include="tests\ContactRemovalTest.cs" />
     <Compile Include="tests\LoginTest.cs" />
-    <Compile Include="tests\ModifyContact.cs" />
+    <Compile Include="tests\ContactModificationTest.cs" />
     <Compile Include="tests\СontactCreationTest.cs" />
   </ItemGroup>
   <ItemGroup>

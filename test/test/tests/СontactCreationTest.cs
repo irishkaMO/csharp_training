@@ -15,7 +15,7 @@ namespace WebAddressbookTests
         [Test]
         public void ContactCreationTest()
         {
-            Contact newFIO = new Contact("NewLastName", "NewFirstName");
+            Contact newFIO = new Contact("NewFirstName", "NewLastName");
             List<Contact> oldContact = app.Contact.GetContactList();
             app.Contact.CreateContact(newFIO);
             List<Contact> newContact = app.Contact.GetContactList();

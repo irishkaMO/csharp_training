@@ -16,8 +16,12 @@ namespace WebAddressbookTests
             GroupData group = new GroupData("group2");
             group.Header = "test";
             group.Footer = "testing";
+
             List<GroupData> oldGroups = app.Group.GetGroupList();
+
             app.Group.Create(group);
+            Assert.AreEqual(oldGroups.Count+1, app.Group.GetGroupCount());
+
             List<GroupData>newGroups = app.Group.GetGroupList();
             oldGroups.Add(group);
             oldGroups.Sort();
@@ -31,9 +35,14 @@ namespace WebAddressbookTests
             GroupData group = new GroupData("");
             group.Header = "";
             group.Footer = "";
+
             List<GroupData> oldGroups = app.Group.GetGroupList();
+
             app.Group.Create(group);
+            Assert.AreEqual(oldGroups.Count + 1, app.Group.GetGroupCount());
+
             List<GroupData>newGroups = app.Group.GetGroupList();
+
             oldGroups.Add(group);
             oldGroups.Sort();
             newGroups.Sort();
