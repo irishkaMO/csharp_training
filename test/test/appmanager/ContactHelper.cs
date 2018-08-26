@@ -84,7 +84,11 @@ namespace WebAddressbookTests
 
                 {
                     IList<IWebElement> tds = element.FindElements(By.CssSelector("td"));
-                    ContactCache.Add(new Contact(tds[2].Text, tds[1].Text));
+                    Contact contact = new Contact(tds[2].Text, tds[1].Text)
+                    {
+                        Id = element.FindElement(By.TagName("input")).GetAttribute("value")
+                    };
+                    ContactCache.Add(contact); 
                 }
             }
             return new List<Contact>(ContactCache);
