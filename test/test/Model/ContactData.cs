@@ -6,35 +6,35 @@ using System.Threading.Tasks;
 
 namespace WebAddressbookTests
 {
-    public class Contact: IEquatable<Contact>, IComparable<Contact>
+    public class ContactData: IEquatable<ContactData>, IComparable<ContactData>
     {
         
 
         private string nickname = "tets_nickname";
-        private string address = "Grodno";
-        private string home = "12345678";
         private string birthdayYear = "1982";
         private string birthdayDay = "8";
         private string birthdayMonth = "November";
+        private string allPhones;
+        private string allEmails;
 
-        public Contact(string firstname)
+        public ContactData(string firstname)
         {
           Firstname = firstname;
         }
 
-        public Contact(string firstname, string middlename, string lastname)
+        public ContactData(string firstname, string middlename, string lastname)
         {
            Firstname = firstname;
            Lastname = lastname;
            Middlename = middlename;
         }
 
-        public Contact(string firstname, string lastname)
+        public ContactData(string firstname, string lastname)
         {
            Firstname = firstname;
            Lastname = lastname;            
         }
-        public bool Equals(Contact other)
+        public bool Equals(ContactData other)
         {
             if (Object.ReferenceEquals(other, null))
             {
@@ -53,7 +53,7 @@ namespace WebAddressbookTests
             return Firstname.GetHashCode();
         }
 
-        public int CompareTo(Contact other)
+        public int CompareTo(ContactData other)
         {
             if (Object.ReferenceEquals(other, null))
             {
@@ -88,17 +88,8 @@ namespace WebAddressbookTests
             }
         }
 
-        public string Address
-        {
-            get
-            {
-                return address;
-            }
-            set
-            {
-                address = value;
-            }
-        }
+        public string Address { get; set; }
+
         public string BirthdayYear
         {
             get
@@ -134,16 +125,76 @@ namespace WebAddressbookTests
                 birthdayMonth = value;
             }
         }
-        public string Home
+        public string HomePhone { get; set; }
+        public string HomePhoneDop { get; set; }
+
+        public string WorkPhone { get; set; }
+
+        public string MobilePhone { get; set; }
+        public string Email { get; set; }
+        public string Email2 { get; set; }
+        public string Email3 { get; set; }
+        public string AllPhones
         {
             get
             {
-                return home;
+                if (allPhones != null)
+                {
+                    return allPhones;
+                }
+                else
+                {
+                    return (CleanUpPhone(HomePhone) + CleanUpPhone(MobilePhone) + CleanUpPhone(WorkPhone)+ CleanUpPhone(HomePhoneDop)).Trim();
+                }
             }
             set
             {
-                home = value;
+                allPhones = value;
             }
+        }
+
+        private string CleanUpPhone(string phone)
+        {
+            if (phone == null||phone=="")
+            {
+                return "";
+            }
+            return phone.Replace(" ", "").Replace("-", "").Replace("(", "").Replace(")", "")+"\r\n";
+
+
+
+           
+        }
+        public string AllEmails
+        {
+            get
+            {
+                if (allEmails != null)
+                {
+                    return allEmails;
+                }
+                else
+                {
+                    return (CleanUpPhone(Email) + CleanUpPhone(Email2) + CleanUpPhone(Email3)).Trim();
+                }
+            }
+            set
+            {
+                allEmails = value;
+            }
+        }
+
+        private string CleanUpEmail(string email)
+        {
+            if (email == null || email == "")
+            {
+                return "";
+            }
+            return email.Replace(" ", "").Replace("-", "") + "\r\n";
+
+
+
+
         }
     }
 }

@@ -12,16 +12,16 @@ namespace WebAddressbookTests
     public class ModifyContacts : AuthTestBase
     {
         [Test]
-        public void ModifyContact()
+        public void ContactModificationTest()
         {   
-            Contact newFIO = new Contact("smena", "Modification");
+            ContactData newFIO = new ContactData("smena", "Modification");
             app.Contact.CheckForAvailabilityСontact();
 
-            List<Contact> oldContacts = app.Contact.GetContactList();
-            Contact oldData = oldContacts[0];
+            List<ContactData> oldContacts = app.Contact.GetContactList();
+            ContactData oldData = oldContacts[0];
             app.Contact.ModifyCont(newFIO);
 
-            List<Contact> newContacts = app.Contact.GetContactList();
+            List<ContactData> newContacts = app.Contact.GetContactList();
 
             oldContacts[0].Firstname = newFIO.Firstname;
             oldContacts[0].Lastname = newFIO.Lastname;
@@ -29,7 +29,7 @@ namespace WebAddressbookTests
             oldContacts.Sort();
 
             Assert.AreEqual(oldContacts, newContacts);
-            foreach(Contact contact in newContacts)
+            foreach(ContactData contact in newContacts)
                 {
                 if (contact.Id == oldData.Id)
                 {
