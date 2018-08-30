@@ -56,6 +56,7 @@ namespace WebAddressbookTests
             FillGroupForm(group);
             SubmitGroupCreation();
             ReturnToGroupPage();
+          
             return this;
         }
 

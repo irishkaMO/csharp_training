@@ -34,5 +34,10 @@ namespace WebAddressbookTests
             }
             driver.FindElement(By.LinkText("groups")).Click();
         }
+
+        internal void GoToContactDetails()
+        {
+            driver.FindElement(By.CssSelector("img[alt=\"Details\"]")).Click();
+        }
     }
 }
