@@ -85,7 +85,7 @@ namespace WebAddressbookTests
 
         public override string ToString()
         {
-            return string.Format("{0} {1}",Firstname,Lastname);
+            return  "firstname" + Firstname + "\nmidlename =" + Middlename + "\nlastname=" + Lastname;
         }
 
         public string Firstname { get; set; }

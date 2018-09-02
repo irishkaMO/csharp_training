@@ -66,7 +66,7 @@ namespace WebAddressbookTests
             };
         }
 
-        public ContactData  CetContactInformationFromEditForm(int index)
+        public ContactData  GetContactInformationFromEditForm(int index)
         {
             manager.Navigator.GoToHomePage();
             manager.Contact.PressButtonEditContact(0);
@@ -103,7 +103,7 @@ namespace WebAddressbookTests
         {
             if (myContact == null)
             {
-                myContact = new ContactData("Arina", "sys", "Korteleva");
+                myContact = new ContactData("Arina", "sys", "AKorteleva");
             }
 
             manager.Contact.GoToAddNewContacPage();

@@ -14,7 +14,7 @@ namespace WebAddressbookTests
         public void TestContactInformation()
         {
             ContactData fromTable = app.Contact.CetContactInformationFromTable(0);
-            ContactData fromForm = app.Contact.CetContactInformationFromEditForm(0);
+            ContactData fromForm = app.Contact.GetContactInformationFromEditForm(0);
             Assert.AreEqual(fromTable, fromForm);
             Assert.AreEqual(fromTable.Address, fromForm.Address);
             Assert.AreEqual(fromTable.AllPhones, fromForm.AllPhones);
@@ -27,7 +27,7 @@ namespace WebAddressbookTests
             app.Contact.CreateContact();
 
             ContactData fromdetails = app.Contact.GetContactInformationDetails(0);
-            ContactData fromForm = app.Contact.CetContactInformationFromEditForm(0);
+            ContactData fromForm = app.Contact.GetContactInformationFromEditForm(0);
 
             Assert.AreEqual(fromdetails.AllName, fromForm.AllName);
             Assert.AreEqual(fromdetails.Address, fromForm.Address);

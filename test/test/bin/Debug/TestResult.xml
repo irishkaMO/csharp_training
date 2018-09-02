@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\test.dll" total="5" errors="0" failures="5" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2018-09-02" time="09:52:01">
+  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8935" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.4\bin" machine-name="WINDOWS-L2DL4DF" user="user" user-domain="WINDOWS-L2DL4DF" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\test.dll" executed="True" result="Failure" success="False" time="36.233" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="WebAddressbookTests" executed="True" result="Failure" success="False" time="36.225" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="ContactCreationTests" executed="True" result="Failure" success="False" time="36.224" asserts="0">
+            <results>
+              <test-suite type="ParameterizedTest" name="ContactCreationTest" executed="True" result="Failure" success="False" time="36.217" asserts="0">
+                <results>
+                  <test-case name="WebAddressbookTests.ContactCreationTests.ContactCreationTest(firstname q©u^K£¨¾áiò4ív&#xA;midlename =$Ò´äàÛ¨fÖçZÌs±Cþ®°1Te£e&#xA;lastname=pQ:+(@)" executed="True" result="Failure" success="False" time="16.790" asserts="1">
+                    <failure>
+                      <message><![CDATA[  Expected and actual are both <System.Collections.Generic.List`1[WebAddressbookTests.ContactData]> with 24 elements
+  Values differ at index [2]
+  Expected: <firstname q©u^K£¨¾áiò4ív
+midlename =$Ò´äàÛ¨fÖçZÌs±Cþ®°1Te£e
+lastname=pQ:+(@>
+  But was:  <firstname q©u^K£¨¾áiò4ív
+midlename =
+lastname=pQ:+(@>
+]]></message>
+                      <stack-trace><![CDATA[at WebAddressbookTests.ContactCreationTests.ContactCreationTest(ContactData contact) in C:\Users\User\source\repos\csharp_training\test\test\tests\СontactCreationTest.cs:line 37
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="WebAddressbookTests.ContactCreationTests.ContactCreationTest(firstname\qõb»wÇ¼|&#xA;midlename =²Qápå»3VÌ¾ºÐÎp³Ä³±­;TX{R¸É&#xA;lastname=ê@)" executed="True" result="Failure" success="False" time="4.566" asserts="1">
+                    <failure>
+                      <message><![CDATA[  Expected and actual are both <System.Collections.Generic.List`1[WebAddressbookTests.ContactData]> with 25 elements
+  Values differ at index [3]
+  Expected: <firstname\qõb»wÇ¼|
+midlename =²Qápå»3VÌ¾ºÐÎp³Ä³±­;TX{R¸É
+lastname=ê@>
+  But was:  <firstname]!»¢¯"Ñ`¶Êm[.LV*
+midlename =
+lastname=ô>
+]]></message>
+                      <stack-trace><![CDATA[at WebAddressbookTests.ContactCreationTests.ContactCreationTest(ContactData contact) in C:\Users\User\source\repos\csharp_training\test\test\tests\СontactCreationTest.cs:line 37
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="WebAddressbookTests.ContactCreationTests.ContactCreationTest(firstname'&#xA;midlename =i×·EkÃË4&#xA;lastname=Î')" executed="True" result="Failure" success="False" time="4.830" asserts="1">
+                    <failure>
+                      <message><![CDATA[  Expected is <System.Collections.Generic.List`1[WebAddressbookTests.ContactData]> with 26 elements, actual is <System.Collections.Generic.List`1[WebAddressbookTests.ContactData]> with 25 elements
+  Values differ at index [2]
+  Expected: <firstname'
+midlename =i×·EkÃË4
+lastname=Î'>
+  But was:  <firstname q©u^K£¨¾áiò4ív
+midlename =
+lastname=pQ:+(@>
+]]></message>
+                      <stack-trace><![CDATA[at WebAddressbookTests.ContactCreationTests.ContactCreationTest(ContactData contact) in C:\Users\User\source\repos\csharp_training\test\test\tests\СontactCreationTest.cs:line 37
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="WebAddressbookTests.ContactCreationTests.ContactCreationTest(firstnameGí)¹Â1µdæÀôH³²&#xA;midlename =ah&quot;¢6Að|¦¥ÆYÎi~&#xA;lastname=&lt;¦!²Yì)" executed="True" result="Failure" success="False" time="4.945" asserts="1">
+                    <failure>
+                      <message><![CDATA[  Expected and actual are both <System.Collections.Generic.List`1[WebAddressbookTests.ContactData]> with 26 elements
+  Values differ at index [8]
+  Expected: <firstnameGí)¹Â1µdæÀôH³²
+midlename =ah"¢6Að|¦¥ÆYÎi~
+lastname=<¦!²Yì>
+  But was:  <firstnameGí)¹Â1µdæÀôH³²
+midlename =
+lastname=>
+]]></message>
+                      <stack-trace><![CDATA[at WebAddressbookTests.ContactCreationTests.ContactCreationTest(ContactData contact) in C:\Users\User\source\repos\csharp_training\test\test\tests\СontactCreationTest.cs:line 37
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="WebAddressbookTests.ContactCreationTests.ContactCreationTest(firstname@$~¤×èÇ=&lt;À|aý,®/«ßTxvÞm&#xA;midlename =ÑJÃÙI{þ¥d¾Y=ñHMÑ&#xA;lastname=÷\øf1xoéÏº)" executed="True" result="Failure" success="False" time="5.018" asserts="1">
+                    <failure>
+                      <message><![CDATA[  Expected and actual are both <System.Collections.Generic.List`1[WebAddressbookTests.ContactData]> with 27 elements
+  Values differ at index [3]
+  Expected: <firstname@$~¤×èÇ=<À|aý,®/«ßTxvÞm
+midlename =ÑJÃÙI{þ¥d¾Y=ñHMÑ
+lastname=÷\øf1xoéÏº>
+  But was:  <firstname@$~¤×èÇ=
+midlename =
+lastname=÷øf1xoéÏº>
+]]></message>
+                      <stack-trace><![CDATA[at WebAddressbookTests.ContactCreationTests.ContactCreationTest(ContactData contact) in C:\Users\User\source\repos\csharp_training\test\test\tests\СontactCreationTest.cs:line 37
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
