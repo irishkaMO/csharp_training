@@ -5,6 +5,7 @@ using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium.Support.UI;
 using System.Collections.Generic;
+using System.IO;
 
 
 namespace WebAddressbookTests
@@ -24,7 +25,24 @@ namespace WebAddressbookTests
                 });
             return contact;
         }
-        [Test,TestCaseSource ("RandomContactDataProvider")]
+
+        public static IEnumerable<ContactData> ContactDataFromFile()
+        {
+            List<ContactData> contact = new List<ContactData>();
+            string[] lines = File.ReadAllLines(@"Contacts.csv");
+            foreach (string l in lines)
+            {
+                string[] parts = l.Split(',');
+                contact.Add(new ContactData(parts[0])
+                {
+                    Middlename = parts[1],
+                    Lastname = parts[2]
+                });
+            }
+            return contact;
+        }
+
+        [Test,TestCaseSource ("ContactDataFromFile")]
         public void ContactCreationTest(ContactData contact)
         {
             //ContactData newFIO = new ContactData("NewFirstName", "NewLastName");
