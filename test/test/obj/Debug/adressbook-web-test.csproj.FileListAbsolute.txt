@@ -19,4 +19,10 @@ C:\Users\User\source\repos\csharp_training\test\test\obj\Debug\test.dll
 C:\Users\User\source\repos\csharp_training\test\test\obj\Debug\test.pdb
 C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\Groups.csv
 C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\Contacts.csv
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\groups.xml
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\Newtonsoft.Json.xml
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\groups.json
+C:\Users\User\source\repos\csharp_training\test\test\obj\Debug\adressbook-web-test.csproj.ResolveComReference.cache
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\groups.xlsx
 C:\Users\User\source\repos\csharp_training\test\test\obj\Debug\adressbook-web-test.csprojResolveAssemblyReference.cache
