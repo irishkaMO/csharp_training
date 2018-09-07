@@ -6,6 +6,9 @@ using NUnit.Framework;
 using OpenQA.Selenium.Support.UI;
 using System.Collections.Generic;
 using System.IO;
+using System.Xml.Serialization;
+using Newtonsoft.Json;
+
 
 
 namespace WebAddressbookTests
@@ -35,24 +38,41 @@ namespace WebAddressbookTests
                 string[] parts = l.Split(',');
                 contact.Add(new ContactData(parts[0])
                 {
-                    Middlename = parts[1],
-                    Lastname = parts[2]
+                    Lastname = parts[1],
+                    Address = parts[2],
+                    Email = parts[3],
+                    FaxFone =parts[4]
                 });
             }
             return contact;
         }
+        public static IEnumerable<ContactData> ContactDataFromXmlFile()
+        {
 
-        [Test,TestCaseSource ("ContactDataFromFile")]
+            return (List<ContactData>)new XmlSerializer(typeof(List<ContactData>))
+                .Deserialize(new StreamReader(@"contacts.xml"));
+        }
+        public static IEnumerable<ContactData>ContactDataFromJsonFile()
+        {
+            return JsonConvert.DeserializeObject<List<ContactData>>(
+                File.ReadAllText(@"contacts.json")
+                );
+
+        }
+
+        [Test,TestCaseSource ("ContactDataFromXmlFile")]
         public void ContactCreationTest(ContactData contact)
         {
             //ContactData newFIO = new ContactData("NewFirstName", "NewLastName");
             List<ContactData> oldContact = app.Contact.GetContactList();
             app.Contact.CreateContact(contact);
             List<ContactData> newContact = app.Contact.GetContactList();
+            app.Auth.Logout();
             oldContact.Add(contact);
             oldContact.Sort();
             newContact.Sort();
             Assert.AreEqual(oldContact, newContact);
+           
         }
     }
 }

@@ -8,7 +8,6 @@ C:\Users\User\source\repos\csharp_training\test\addressbook-test-data-generators
 C:\Users\User\source\repos\csharp_training\test\addressbook-test-data-generators\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\User\source\repos\csharp_training\test\addressbook-test-data-generators\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\User\source\repos\csharp_training\test\addressbook-test-data-generators\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
-C:\Users\User\source\repos\csharp_training\test\addressbook-test-data-generators\bin\Debug\Contacts.csv
 C:\Users\User\source\repos\csharp_training\test\addressbook-test-data-generators\bin\Debug\Groups.csv
 C:\Users\User\source\repos\csharp_training\test\addressbook-test-data-generators\bin\Debug\test.dll
 C:\Users\User\source\repos\csharp_training\test\addressbook-test-data-generators\bin\Debug\WebDriver.dll
@@ -25,3 +24,5 @@ C:\Users\User\source\repos\csharp_training\test\addressbook-test-data-generators
 C:\Users\User\source\repos\csharp_training\test\addressbook-test-data-generators\bin\Debug\groups.json
 C:\Users\User\source\repos\csharp_training\test\addressbook-test-data-generators\obj\Debug\addressbook-test-data-generators.csproj.ResolveComReference.cache
 C:\Users\User\source\repos\csharp_training\test\addressbook-test-data-generators\bin\Debug\groups.xlsx
+C:\Users\User\source\repos\csharp_training\test\addressbook-test-data-generators\bin\Debug\contacts.json
+C:\Users\User\source\repos\csharp_training\test\addressbook-test-data-generators\bin\Debug\contacts.xml

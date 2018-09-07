@@ -33,6 +33,10 @@ namespace WebAddressbookTests
         {
             Firstname = firstname;
         }
+        public ContactData()
+        {
+            
+        }
 
         public ContactData(string firstname, string middlename, string lastname)
         {
