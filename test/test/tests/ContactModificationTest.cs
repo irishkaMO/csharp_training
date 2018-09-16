@@ -17,25 +17,27 @@ namespace WebAddressbookTests
             ContactData newFIO = new ContactData("smena", "Modification");
             app.Contact.CheckForAvailabilityСontact();
 
-            List<ContactData> oldContacts = app.Contact.GetContactList();
-            ContactData oldData = oldContacts[0];
-            app.Contact.ModifyCont(newFIO);
+            List<ContactData> oldContacts = ContactData.GetAll();
+            ContactData toBeModifiedContact = oldContacts[0];
 
-            List<ContactData> newContacts = app.Contact.GetContactList();
+            app.Contact.ModifyCont(toBeModifiedContact, newFIO);
 
-            oldContacts[0].Firstname = newFIO.Firstname;
-            oldContacts[0].Lastname = newFIO.Lastname;
+            List<ContactData> newContacts = ContactData.GetAll();
+
+            toBeModifiedContact.Firstname = newFIO.Firstname;
+            toBeModifiedContact.Lastname = newFIO.Lastname;
             newContacts.Sort();
             oldContacts.Sort();
 
             Assert.AreEqual(oldContacts, newContacts);
+
             foreach(ContactData contact in newContacts)
+            {
+                if (contact.Id == toBeModifiedContact.Id)
                 {
-                if (contact.Id == oldData.Id)
-                {
-                    Assert.AreEqual(contact.Firstname, oldData.Firstname);
+                    Assert.AreEqual(contact.Firstname, toBeModifiedContact.Firstname);
                 }
-                }
+            }
         }
     }
 }

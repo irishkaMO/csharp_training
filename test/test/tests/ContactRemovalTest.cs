@@ -16,18 +16,25 @@ namespace WebAddressbookTests
         public void DeleteContactByEditForm()
         {
             app.Contact.CheckForAvailabilityСontact();
-            List<ContactData> oldContact = app.Contact.GetContactList();
-            app.Contact.DeleteContOnEdit();
+
+            List<ContactData> oldContacts = ContactData.GetAll();
+            ContactData toBeRemovedContact = oldContacts[0];
+
+            app.Contact.DeleteContactOnEdit(toBeRemovedContact);
             app.Navigator.GoToHomePage();
-            List<ContactData> newContact = app.Contact.GetContactList();
-            ContactData toBeRemoved = oldContact[0];
-            oldContact.RemoveAt(0);
-            oldContact.Sort();
-            newContact.Sort();
-            Assert.AreEqual(oldContact, newContact);
-            foreach (ContactData contact in newContact)
+
+            
+            List<ContactData> newContacts = ContactData.GetAll();
+
+            oldContacts.RemoveAt(0);
+            oldContacts.Sort();
+            newContacts.Sort();
+
+            Assert.AreEqual(oldContacts, newContacts);
+
+            foreach (ContactData contact in newContacts)
             {
-                Assert.AreNotEqual(contact.Id, toBeRemoved.Id);
+                Assert.AreNotEqual(contact.Id, toBeRemovedContact.Id);
             }
         }
 
@@ -36,13 +43,14 @@ namespace WebAddressbookTests
         {
             app.Contact.CheckForAvailabilityСontact();
 
-            List<ContactData> oldContact = app.Contact.GetContactList();
-
+            List<ContactData> oldContact = ContactData.GetAll();
+            ContactData toBeRemovedContact = oldContact[0];
+            app.Contact.SelectContactOnHomePage(toBeRemovedContact.Id);
             app.Contact.DeleteContOnHome();
             app.Navigator.GoToHomePage();
 
-            List<ContactData> newContact = app.Contact.GetContactList();
-            ContactData toBeRemoved = oldContact[0];
+            List<ContactData> newContact = ContactData.GetAll();
+           
             oldContact.RemoveAt(0);
             oldContact.Sort();
             newContact.Sort();
@@ -50,7 +58,7 @@ namespace WebAddressbookTests
             Assert.AreEqual(oldContact, newContact);
             foreach(ContactData contact in newContact)
                 {
-                Assert.AreNotEqual(contact.Id, toBeRemoved.Id);
+                Assert.AreNotEqual(contact.Id, toBeRemovedContact.Id);
                 }
         }
     }

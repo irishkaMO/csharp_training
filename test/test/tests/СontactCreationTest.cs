@@ -64,10 +64,12 @@ namespace WebAddressbookTests
         public void ContactCreationTest(ContactData contact)
         {
             //ContactData newFIO = new ContactData("NewFirstName", "NewLastName");
-            List<ContactData> oldContact = app.Contact.GetContactList();
+            List<ContactData> oldContact = ContactData.GetAll();
             app.Contact.CreateContact(contact);
-            List<ContactData> newContact = app.Contact.GetContactList();
-            app.Auth.Logout();
+
+            List<ContactData> newContact = ContactData.GetAll();
+
+            //app.Auth.Logout();
             oldContact.Add(contact);
             oldContact.Sort();
             newContact.Sort();

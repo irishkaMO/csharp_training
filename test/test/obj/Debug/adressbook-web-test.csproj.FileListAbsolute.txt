@@ -27,3 +27,13 @@ C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\groups.xlsx
 C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\contacts.json
 C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\contacts.xml
 C:\Users\User\source\repos\csharp_training\test\test\obj\Debug\adressbook-web-test.csprojResolveAssemblyReference.cache
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\linq2db.dll
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\MySql.Data.dll
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\linq2db.pdb
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\linq2db.xml
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\MySql.Data.xml
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\test.dll.config
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\EntityFramework.dll
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\EntityFramework.xml
+C:\Users\User\source\repos\csharp_training\test\test\bin\Debug\EntityFramework.SqlServer.xml

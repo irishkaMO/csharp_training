@@ -8,7 +8,7 @@ using NUnit.Framework;
 
 namespace WebAddressbookTests
 {
-    public class AuthTestBase:BaseTest
+    public class AuthTestBase : BaseTest
     {
         [SetUp]
         public void SetupLogin()

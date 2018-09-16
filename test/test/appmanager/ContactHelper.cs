@@ -125,6 +125,17 @@ namespace WebAddressbookTests
             manager.Contact.PressButtonEditContact(0);
             manager.Contact.СontactForm(newFIO);
             manager.Contact.ModifyContactButton();
+
+            return this;
+        }
+
+        public ContactHelper ModifyCont(ContactData contact, ContactData newFIO)
+        {
+            manager.Navigator.GoToContactEditPage(contact.Id);
+            manager.Contact.СontactForm(newFIO);
+            manager.Contact.ModifyContactButton();
+            manager.Navigator.GoToHomePage();
+
             return this;
         }
 
@@ -134,14 +145,23 @@ namespace WebAddressbookTests
             manager.Contact.DeleteContactButton();
             return this;
         }
+        public ContactHelper DeleteContactOnEdit(ContactData contact)
+        {
+            manager.Navigator.GoToContactEditPage(contact.Id);
+            manager.Contact.DeleteContactButton();
 
+            return this;
+        }
         public ContactHelper DeleteContOnHome()
         {
-            
-            driver.FindElement(By.CssSelector("input[name=\"selected[]\"]")).Click();
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             ContactCache = null;
             driver.SwitchTo().Alert().Accept();
+            return this;
+        }
+        public ContactHelper SelectContactOnHomePage(string id)
+        {
+             driver.FindElement(By.XPath("(//input[@name='selected[]' and @value='" + id + "'])")).Click();
             return this;
         }
         public void CheckForAvailabilityСontact()
@@ -177,7 +197,6 @@ namespace WebAddressbookTests
             return new List<ContactData>(ContactCache);
         }
 
-
         public ContactHelper ModifyContactButton()
         {
             driver.FindElement(By.XPath("//*[@id=\"content\"]/form[1]/input[22]")).Click();
@@ -204,6 +223,7 @@ namespace WebAddressbookTests
             new SelectElement(driver.FindElement(By.Name("bmonth"))).SelectByText(FIO.BirthdayMonth);
             Type(By.Name("byear"),FIO.BirthdayYear);
             Type(By.Name("home"),FIO.HomePhone);
+
             return this;
         }
 
@@ -236,6 +256,7 @@ namespace WebAddressbookTests
                 .FindElement(By.TagName("a")).Click();
             return this;
         }
+
         public int GetNumberSearchResults()
         {
             manager.Navigator.GoToHomePage();

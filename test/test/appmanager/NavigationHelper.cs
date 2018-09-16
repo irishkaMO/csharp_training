@@ -39,5 +39,10 @@ namespace WebAddressbookTests
         {
             driver.FindElement(By.CssSelector("img[alt=\"Details\"]")).Click();
         }
+
+        public void GoToContactEditPage(string id)
+        {
+            driver.Navigate().GoToUrl(baseURL + "/addressbook/edit.php?id=" + id);
+        }
     }
 }
