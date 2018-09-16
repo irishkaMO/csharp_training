@@ -34,6 +34,54 @@ namespace WebAddressbookTests
             };
         }
 
+        public void AddContactToGroup(ContactData contact, GroupData group)
+        {
+            manager.Navigator.GoToHomePage();
+            ClearGropFilter();
+            SelectContactOnHomePage(contact.Id);
+            SelectGroupToAdd(group.Name);
+            CommitAddingContactToGroup();
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10))
+                .Until(d => d.FindElements(By.CssSelector("div.msgbox")).Count > 0);
+        }
+        public void DeleteContactFromGroup(ContactData contact, GroupData group)
+        {
+            manager.Navigator.GoToHomePage();
+            SelectGroupToRemoveContact(group.Name);
+            SelectContactOnHomePage(contact.Id);
+
+            CommitRemoveContactFromGroup();
+
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10))
+                .Until(d => d.FindElements(By.CssSelector("div.msgbox")).Count > 0);
+        }
+
+
+        private void CommitAddingContactToGroup()
+        {
+            driver.FindElement(By.Name("add")).Click();
+        }
+
+        private void CommitRemoveContactFromGroup()
+        {
+            driver.FindElement(By.Name("remove")).Click();
+        }
+
+        private void SelectGroupToAdd(string name)
+        {
+            new SelectElement(driver.FindElement(By.Name("to_group"))).SelectByText(name); ;
+        }
+
+        private void SelectGroupToRemoveContact(string name)
+        {
+            new SelectElement(driver.FindElement(By.Name("group"))).SelectByText(name); ;
+        }
+
+        private void ClearGropFilter()
+        {
+            new SelectElement(driver.FindElement(By.Name("group"))).SelectByText("[all]");
+        }
+
         internal ContactData GetContactInformationDetails(int index)
         {
             manager.Navigator.GoToHomePage();
@@ -157,11 +205,13 @@ namespace WebAddressbookTests
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             ContactCache = null;
             driver.SwitchTo().Alert().Accept();
+
             return this;
         }
         public ContactHelper SelectContactOnHomePage(string id)
         {
-             driver.FindElement(By.XPath("(//input[@name='selected[]' and @value='" + id + "'])")).Click();
+            driver.FindElement(By.XPath("(//input[@name='selected[]' and @value='" + id + "'])")).Click();
+
             return this;
         }
         public void CheckForAvailabilityСontact()

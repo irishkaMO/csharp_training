@@ -107,5 +107,19 @@ namespace WebAddressbookTests
             end = DateTime.Now;
             System.Console.Out.WriteLine(end.Subtract(start));
         }
+        [Test]
+
+        public void TestDBConnect()
+        {
+            System.Console.Out.WriteLine("Start:");
+            ContactData contact = ContactData.GetAll()[0];
+            System.Console.Out.WriteLine(contact.AllName);
+
+            foreach (GroupData group in contact.GetGroups())
+            {
+                System.Console.Out.WriteLine(group.Name);
+            }
+        }
+
     }
 }

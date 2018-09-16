@@ -329,5 +329,14 @@ namespace WebAddressbookTests
             return Regex.Replace(email," () ", "") +"\r\n";
 
         }
+        public List<GroupData> GetGroups()
+        {
+            using (AddressbookDB db = new AddressbookDB())
+            {
+                return (from g in db.Groups
+                        from gcr in db.GCR.Where(p => p.ContactId == Id && p.GroupId == g.Id)
+                        select g).Distinct().ToList();
+            }
+        }
     }
 }

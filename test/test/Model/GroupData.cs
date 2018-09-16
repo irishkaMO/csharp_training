@@ -66,13 +66,22 @@ namespace WebAddressbookTests
         public string Header { get; set; }
         [Column(Name = "group_footer")]
         public string Footer { get; set; }
-        [Column(Name = "group_id"),PrimaryKey,Identity]
+        [Column(Name ="group_id"),PrimaryKey,Identity]
         public string Id { get; set; }
 
         public static List<GroupData> GetAll()
         {
             using (AddressbookDB db = new AddressbookDB())
                 return (from g in db.Groups select g).ToList();
+        }
+        public List<ContactData> GetContacts()
+        {
+            using (AddressbookDB db = new AddressbookDB())
+            {
+                return (from c in db.Contact
+                        from gcr in db.GCR.Where(p => p.GroupId == Id && p.ContactId == c.Id && c.Deprecated == "0000-00-00 00:00:00")
+                        select c).Distinct().ToList();
+            }
         }
     }
 }
