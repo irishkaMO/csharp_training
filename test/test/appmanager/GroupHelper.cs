@@ -132,12 +132,8 @@ namespace WebAddressbookTests
         public void CheckForAvailabilityGroup()
         {
             manager.Navigator.GoToGroupPage();
-            if (IsElementPresent(By.Name("selected[]")))
-            {
-                return;
-            }
-            manager.Group.CreateGroup();
-            
+            if (!IsElementPresent(By.Name("selected[]")))
+                manager.Group.CreateGroup();
         }
        
         public GroupHelper SubmitGroupCreation()

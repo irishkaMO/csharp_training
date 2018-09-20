@@ -12,9 +12,25 @@ namespace WebAddressbookTests
         [Test]
         public void TestAddingContactToGroup()
         {
+            app.Group.CheckForAvailabilityGroup();
+            app.Contact.CheckForAvailabilityСontact();
+
             GroupData group = GroupData.GetAll()[0];
             List<ContactData> oldList = group.GetContacts();
-            ContactData contact = ContactData.GetAll().Except(oldList).First();
+            List<ContactData> allContacts = ContactData.GetAll();
+
+            ContactData contact;
+            IEnumerable<ContactData> diff = allContacts.Except(oldList);
+            if (diff.Count() == 0)
+            {
+                ContactData myContact = new ContactData(BaseTest.GenerateRandomString(15), "sys4", "AKorteleva4");// создание рандомных из-за  except функции, когда только одинаковые получаем 0
+                app.Contact.CreateContact(myContact);
+                contact = ContactData.GetAll().Except(oldList).First(); // что бы получить id нового контакта
+            }
+            else
+            {
+                contact = diff.First();
+            }
 
             app.Contact.AddContactToGroup(contact, group);
 

@@ -147,18 +147,25 @@ namespace WebAddressbookTests
 
         }
 
-        public ContactHelper CreateContact(ContactData myContact = null)
+        public ContactData CreateContact(ContactData myContact)
         {
-            if (myContact == null)
-            {
-                myContact = new ContactData("Arina", "sys", "AKorteleva");
-            }
-
             manager.Contact.GoToAddNewContacPage();
             manager.Contact.AllFildsContactForm(myContact);
             manager.Contact.SubmitContact();
-            return this;
+
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10))
+               .Until(d => d.FindElements(By.CssSelector("table#maintable")).Count > 0);
+
+            return myContact;
         }
+
+        public ContactData CreateContact()
+        {
+            ContactData myContact = new ContactData("Arina", "sys", "AKorteleva");
+
+            return this.CreateContact(myContact);
+        }
+        
         public ContactHelper SubmitContact()
         {
             driver.FindElement(By.Name("submit")).Click();
@@ -217,12 +224,11 @@ namespace WebAddressbookTests
         public void CheckForAvailabilityСontact()
         {
             manager.Navigator.GoToHomePage();
-            if (IsElementPresent(By.CssSelector("img[alt=\"Edit\"]")))
+            if (!IsElementPresent(By.CssSelector("img[alt=\"Edit\"]")))
             {
-                return;
+                manager.Contact.CreateContact();
+                manager.Navigator.GoToHomePage();
             }
-            manager.Contact.CreateContact();
-            manager.Navigator.GoToHomePage();
         }
         private List<ContactData> ContactCache = null;
 
