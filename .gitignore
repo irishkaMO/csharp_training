@@ -1,2 +1,4 @@
 # Google App Engine generated folder
 appengine-generated/
+/addressbook_tests_autoit/.vs/addressbook_tests_autoit/v15/Server/sqlite3
+/pft/mantis-tests/.vs/mantis-tests/v15/Server/sqlite3
